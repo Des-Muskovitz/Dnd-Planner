@@ -9,6 +9,7 @@ public class DndPlannerCLI {
 
     /*ToDo
     Write interface for CampaignDao
+    Create POJO model for Campaign
     Refactor DayOfWeekDao
     Impement JdbcSpecificDayDao
     Implement JdbcCampaignDao
