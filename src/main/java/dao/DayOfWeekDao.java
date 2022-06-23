@@ -30,6 +30,14 @@ public interface DayOfWeekDao {
     public List<DayOfWeek> getDayOfWeekByDayCode(String dayCode);
 
     /**
+     * Returns all Days of the week inputed within a specific campaign
+     *
+     * @param campaignId The id of a campaign
+     * @return Returns a lit of all days of a week linked with a speciic campaign
+     */
+    public List<DayOfWeek> getDayOfWeekByCampaign(int campaignId);
+
+    /**
      * Returns a specific day of the week inputed by a specific person
      *
      * @param personId ID code of a specific person

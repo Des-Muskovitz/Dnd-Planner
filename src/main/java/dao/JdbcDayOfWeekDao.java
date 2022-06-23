@@ -14,6 +14,7 @@ public class JdbcDayOfWeekDao implements DayOfWeekDao{
     private static final String GET_ALL_DAYS_OF_WEEK_SQL = START_OF_SELECT_STATEMENT_SQL+";";
     private static final String GET_DAY_OF_WEEK_BY_PERSON_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ?;";
     private static final String GET_DAY_OF_WEEK_BY_DAY_CODE_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE day_code = ?;";
+    private static final String GET_DAY_OF_WEEK_BY_CAMPAIGN_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE campaign_id = ?;";
     private static final String GET_DAY_OF_WEEK_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ? AND day_code = ?";
     private static final String ADD_DAY_OF_WEEK_SQL = "INSERT INTO day_of_week (person_id, day_code, is_free, start_time, end_time) VALUES (?,?,?,?,?)";
     private static final String UPDATE_DAY_OF_WEEK_SQL = "UPDATE day_of_week SET person_id = ?, day_code = ?, is_free = ?, start_time = ? end_time = ? WHERE person_id = ? AND day_code = ?;";
@@ -45,6 +46,16 @@ public class JdbcDayOfWeekDao implements DayOfWeekDao{
     public List<DayOfWeek> getDayOfWeekByDayCode(String dayCode) {
         List<DayOfWeek> dayOfWeeks = new ArrayList<>();
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(GET_DAY_OF_WEEK_BY_DAY_CODE_SQL, dayCode);
+        while(sqlRowSet.next()){
+            dayOfWeeks.add(mapDataToDayOfWeek(sqlRowSet));
+        }
+        return dayOfWeeks;
+    }
+
+    @Override
+    public List<DayOfWeek> getDayOfWeekByCampaign(int campaignId) {
+        List<DayOfWeek> dayOfWeeks = new ArrayList<>();
+        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(GET_DAY_OF_WEEK_BY_CAMPAIGN_ID_SQL, campaignId);
         while(sqlRowSet.next()){
             dayOfWeeks.add(mapDataToDayOfWeek(sqlRowSet));
         }
