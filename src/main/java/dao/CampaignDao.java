@@ -1,7 +1,6 @@
 package dao;
 
 import model.Campaign;
-import model.Person;
 
 import java.util.List;
 
@@ -33,14 +32,30 @@ public interface CampaignDao {
     /**
      * Adds a campaign to the entity table
      *
-     * @param newCampaign
-     * @return
+     * @param newCampaign A valid campaign object
+     * @return returns the same campaign object that was passed through, but with an updated campaignId
      */
     public Campaign addCampaign(Campaign newCampaign);
 
-    public boolean addPlayerToCampaign(int CampaignId, Person personToAdd);
+    /**
+     * Adds a player to a campaign
+     *
+     * @param CampaignId The id of the campaign that the player is being added too
+     * @param personId The id of the person that is being added to the campaign
+     * */
+    public void addPlayerToCampaign(int CampaignId, int personId);
 
+    /**
+     * Replaces all the values of the campaign with the new values passed in by the parameter
+     *
+     * @param updatedCampaign An updated campaign object, Must have a valid campaign id or no changes will apply
+     */
     public void updateCampaign(Campaign updatedCampaign);
 
+    /**
+     * Removes a Campaign entity from the datasource
+     *
+     * @param CampaignId Must be a valid CampaignId
+     */
     public void deleteCampaign(int CampaignId);
 }
