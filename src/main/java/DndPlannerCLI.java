@@ -1,5 +1,8 @@
 import dao.*;
+import model.Campaign;
+import model.DayOfWeek;
 import model.Person;
+import model.SpecificDay;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.util.ArrayList;
@@ -18,8 +21,8 @@ public class DndPlannerCLI {
 
     private final PersonDao personDao;
     private final DayOfWeekDao dayOfWeekDao;
-    //private final SpecificDayDao specificDayDao;
-    //private final CampaignDao campaignDao;
+    private final SpecificDayDao specificDayDao;
+    private final CampaignDao campaignDao;
 
     public static void main(String[] args) {
         BasicDataSource dataSource = new BasicDataSource();
@@ -34,13 +37,28 @@ public class DndPlannerCLI {
     public DndPlannerCLI(BasicDataSource dataSource){
         personDao = new JdbcPersonDao(dataSource);
         dayOfWeekDao = new JdbcDayOfWeekDao(dataSource);
-        //specificDayDao = new JdbcSpecificDayDao(dataSource);
-        //campaignDao = new JdbcCampaignDao(dataSource);
+        specificDayDao = new JdbcSpecificDayDao(dataSource);
+        campaignDao = new JdbcCampaignDao(dataSource);
     }
 
     public void run(){
+        List<Person> listOfPeople = personDao.getAllPeople();
+        List<DayOfWeek> daysOfWeeks = dayOfWeekDao.getAllDaysOfWeek();
+        List<SpecificDay> specificDays = specificDayDao.getSpecificDays();
+        List<Campaign> campaigns = campaignDao.getCampaigns();
 
-
+        for(Person p : listOfPeople){
+            System.out.println(p);
+        }
+        for(DayOfWeek dow : daysOfWeeks){
+            System.out.println(dow);
+        }
+        for(SpecificDay sd : specificDays){
+            System.out.println(sd);
+        }
+        for(Campaign c : campaigns){
+            System.out.println(c);
+        }
 
     }
 

@@ -11,10 +11,12 @@ import java.util.List;
 public class JdbcPersonDao implements PersonDao{
 
     private final JdbcTemplate jdbcTemplate;
-    private static final String GET_ALL_PEOPLE_SQL = "SELECT person_id, name, character_name FROM person;";
-    private static final String GET_PERSON_SQL = "SELECT person_id, name, character_name FROM person WHERE person_id = ?";
-    private static final String ADD_PERSON_SQL = "INSERT INTO person (name, character_name) VALUES (?,?) RETURNING person_id;";
-    private static final String UPDATE_PERSON_SQL = "UPDATE person SET name = ?, character_name = ? WHERE person_id = ?;";
+    private static final String START_SELECT_STATEMENT_SQL = "SELECT p.person_id, p.name FROM person p";
+    private static final String GET_ALL_PEOPLE_SQL = START_SELECT_STATEMENT_SQL + ";";
+    private static final String GET_PERSON_SQL = START_SELECT_STATEMENT_SQL + " WHERE p.person_id = ?";
+    private static final String GET_ALL_PEOPLE_BY_CAMPAIGN_SQL = START_SELECT_STATEMENT_SQL + " JOIN campaign_person cp ON cp.person_id = p.person_id WHERE cp.campaign_id = ?;";
+    private static final String ADD_PERSON_SQL = "INSERT INTO person (name) VALUES (?) RETURNING person_id;";
+    private static final String UPDATE_PERSON_SQL = "UPDATE person SET name = ? WHERE person_id = ?;";
     private static final String DELETE_PERSON_SQL = "DELETE FROM days_of_week WHERE person_id = ?; DELETE FROM specific_days WHERE person_id = ?; DELETE FROM person WHERE person_id = ?;";
 
     public JdbcPersonDao(DataSource dataSource){this.jdbcTemplate = new JdbcTemplate(dataSource);}
@@ -23,6 +25,16 @@ public class JdbcPersonDao implements PersonDao{
     public List<Person> getAllPeople() {
         List<Person> persons = new ArrayList<>();
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(GET_ALL_PEOPLE_SQL);
+        while(sqlRowSet.next()){
+            persons.add(mapDataToPerson(sqlRowSet));
+        }
+        return persons;
+    }
+
+    @Override
+    public List<Person> getAllPeopleByCampaign(int campaignId) {
+        List<Person> persons = new ArrayList<>();
+        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(GET_ALL_PEOPLE_BY_CAMPAIGN_SQL, campaignId);
         while(sqlRowSet.next()){
             persons.add(mapDataToPerson(sqlRowSet));
         }
@@ -42,13 +54,13 @@ public class JdbcPersonDao implements PersonDao{
 
     @Override
     public Person addPerson(Person newPerson) {
-        Integer personId = jdbcTemplate.queryForObject(ADD_PERSON_SQL, Integer.class, newPerson.getName(), newPerson.getCharacterName());
+        Integer personId = jdbcTemplate.queryForObject(ADD_PERSON_SQL, Integer.class, newPerson.getName());
         return getPerson(personId);
     }
 
     @Override
     public void updatePerson(Person newPerson) {
-        jdbcTemplate.update(UPDATE_PERSON_SQL,newPerson.getName(),newPerson.getCharacterName());
+        jdbcTemplate.update(UPDATE_PERSON_SQL,newPerson.getName());
     }
 
     @Override
@@ -66,7 +78,6 @@ public class JdbcPersonDao implements PersonDao{
         Person person = new Person();
         person.setPersonId(sqlRowSet.getInt("person_id"));
         person.setName(sqlRowSet.getString("name"));
-        person.setCharacterName(sqlRowSet.getString("character_name"));
         return person;
     }
 }

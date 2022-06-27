@@ -15,6 +15,14 @@ public interface PersonDao {
      */
     public List<Person> getAllPeople();
 
+    /**
+     * Gets all people from a data source by Campaign and returns them in a list
+     *
+     * @param campaignId A valid campaign id, if invalid list will be empty
+     * @return A list of Person Objects
+     */
+    public List<Person> getAllPeopleByCampaign(int campaignId);
+
 
     /**
      * Gets a specific person from a data source by their id and returns as a Person object

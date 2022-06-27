@@ -43,7 +43,7 @@ public interface CampaignDao {
      * @param CampaignId The id of the campaign that the player is being added too
      * @param personId The id of the person that is being added to the campaign
      * */
-    public void addPlayerToCampaign(int CampaignId, int personId);
+    public void addPlayerToCampaign(int campaignId, int personId);
 
     /**
      * Replaces all the values of the campaign with the new values passed in by the parameter
@@ -57,5 +57,5 @@ public interface CampaignDao {
      *
      * @param CampaignId Must be a valid CampaignId
      */
-    public void deleteCampaign(int CampaignId);
+    public void deleteCampaign(int campaignId);
 }
