@@ -8,6 +8,14 @@ public class Campaign {
     private String name;
     private String description;
 
+    public Campaign(int campaignId, String name, String description){
+        this.campaignId = campaignId;
+        this.name = name;
+        this.description = description;
+    }
+
+    public Campaign(){}
+
     public int getCampaignId() {
         return campaignId;
     }

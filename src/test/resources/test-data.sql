@@ -1,8 +1,6 @@
-DROP TABLE IF EXISTS specific_day;
-DROP TABLE IF EXISTS days_of_week;
-DROP TABLE IF EXISTS campaign_person;
-DROP TABLE IF EXISTS campaign;
-DROP TABLE IF EXISTS person;
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS person, campaign, campaign_person, days_of_week, specific_day CASCADE;
 
 CREATE TABLE person (
 	person_id SERIAL NOT NULL,
@@ -99,3 +97,5 @@ INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (2, 
 INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'FRI', true, '15:30:00', '20:45:00');
 INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (2, 1, 'SAT', false);
 INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'SUN', true, '15:30:00', '20:45:00');
+
+COMMIT;

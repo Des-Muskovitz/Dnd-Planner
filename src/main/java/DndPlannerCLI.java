@@ -42,23 +42,7 @@ public class DndPlannerCLI {
     }
 
     public void run(){
-        List<Person> listOfPeople = personDao.getAllPeople();
-        List<DayOfWeek> daysOfWeeks = dayOfWeekDao.getAllDaysOfWeek();
-        List<SpecificDay> specificDays = specificDayDao.getSpecificDays();
-        List<Campaign> campaigns = campaignDao.getCampaigns();
 
-        for(Person p : listOfPeople){
-            System.out.println(p);
-        }
-        for(DayOfWeek dow : daysOfWeeks){
-            System.out.println(dow);
-        }
-        for(SpecificDay sd : specificDays){
-            System.out.println(sd);
-        }
-        for(Campaign c : campaigns){
-            System.out.println(c);
-        }
 
     }
 

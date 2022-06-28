@@ -12,13 +12,13 @@ public class JdbcCampaignDao implements CampaignDao{
 
     private JdbcTemplate jdbcTemplate;
     private static final String START_OF_SELECT_SQL = "SELECT c.campaign_id, c.name, c.description FROM campaign c";
-    private static final String GET_CAMPAIGNS_SQL = START_OF_SELECT_SQL + ";";
-    private static final String GET_CAMPAIGNS_BY_PERSON_SQL = START_OF_SELECT_SQL + " JOIN campaign_person cp ON cp.campaign_id = c.campaign_id WHERE cp.person_id = ?;";
-    private static final String GET_CAMPAIGN_BY_ID_SQL = START_OF_SELECT_SQL + " WHERE c.campaign_id = ?;";
-    private static final String ADD_CAMPAIGN_SQL = "INSERT INTO campaign (name, description) VALUES (?,?) RETURING campaign_id;";
+    private static final String GET_CAMPAIGNS_SQL = START_OF_SELECT_SQL + " ORDER BY c.campaign_id ASC;";
+    private static final String GET_CAMPAIGNS_BY_PERSON_SQL = START_OF_SELECT_SQL + " JOIN campaign_person cp ON cp.campaign_id = c.campaign_id WHERE cp.person_id = ? ORDER BY c.campaign_id ASC;";
+    private static final String GET_CAMPAIGN_BY_ID_SQL = START_OF_SELECT_SQL + " WHERE c.campaign_id = ? ORDER BY c.campaign_id ASC;";
+    private static final String ADD_CAMPAIGN_SQL = "INSERT INTO campaign (name, description) VALUES (?,?) RETURNING campaign_id;";
     private static final String ADD_PLAYER_TO_CAMPAING_SQL = "INSERT INTO campaign_person (campaign_id, person_id) VALUES (?,?);";
     private static final String UPDATE_CAMPAIGN_SQL = "UPDATE campaign SET name = ?, description = ? WHERE campaign_id = ?;";
-    private static final String DELETE_CAMPAIGN_SQL = "DELETE FROM campaign WHERE campaign_id = ?;";
+    private static final String DELETE_CAMPAIGN_SQL = "DELETE FROM campaign_person WHERE campaign_id = ?; DELETE FROM campaign WHERE campaign_id = ?;";
 
     public JdbcCampaignDao(DataSource dataSource){jdbcTemplate = new JdbcTemplate(dataSource);}
 
@@ -65,12 +65,12 @@ public class JdbcCampaignDao implements CampaignDao{
 
     @Override
     public void updateCampaign(Campaign updatedCampaign) {
-        jdbcTemplate.update(UPDATE_CAMPAIGN_SQL, updatedCampaign.getName(), updatedCampaign.getDescription());
+        jdbcTemplate.update(UPDATE_CAMPAIGN_SQL, updatedCampaign.getName(), updatedCampaign.getDescription(), updatedCampaign.getCampaignId());
     }
 
     @Override
     public void deleteCampaign(int campaignId) {
-        jdbcTemplate.update(DELETE_CAMPAIGN_SQL, campaignId);
+        jdbcTemplate.update(DELETE_CAMPAIGN_SQL, campaignId, campaignId);
     }
 
     private Campaign mapDataToCampaign(SqlRowSet sqlRowSet){
