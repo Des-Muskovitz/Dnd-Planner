@@ -51,7 +51,14 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JdbcCampaignDaoTest">
+  <component name="RunManager" selected="Application.DndPlannerCLI">
+    <configuration name="DndPlannerCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DndPlannerCLI" />
+      <module name="DnD-Planner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JdbcCampaignDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DnD-Planner" />
       <extension name="coverage">
@@ -63,22 +70,6 @@
       <option name="PACKAGE_NAME" value="dao" />
       <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JdbcCampaignDaoTest.testAddCampaign" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DnD-Planner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
-      <option name="METHOD_NAME" value="testAddCampaign" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DndPlannerCLI" />
         <item itemvalue="JUnit.JdbcCampaignDaoTest" />
         <item itemvalue="JUnit.JdbcCampaignDaoTest.testGetCampaigns" />
         <item itemvalue="JUnit.JdbcCampaignDaoTest.testGetCampaignsByPerson" />
         <item itemvalue="JUnit.JdbcCampaignDaoTest.testAddPlayerToCampaign" />
-        <item itemvalue="JUnit.JdbcCampaignDaoTest.testAddCampaign" />
       </list>
     </recent_temporary>
   </component>
