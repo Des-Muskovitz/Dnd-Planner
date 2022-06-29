@@ -33,13 +33,14 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="dao.BaseDaoTest" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Student\workspace\Personal-Projects\DnD-Planner" />
       <recent name="C:\Users\Student\workspace\Personal-Projects\DnD-Planner\src\test\resources" />
       <recent name="C:\Users\Student\workspace\Personal-Projects\DnD-Planner\src\main\resources" />
     </key>

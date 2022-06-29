@@ -18,7 +18,7 @@ public class DndPlannerCLI {
         dataSource.setPassword("postgres1");
 
         DndPlannerCLI application = new DndPlannerCLI(dataSource);
-        //SpringApplication.run(DndPlannerCLI.class, args);
+        SpringApplication.run(DndPlannerCLI.class, args);
     }
 
     public DndPlannerCLI(BasicDataSource dataSource){
