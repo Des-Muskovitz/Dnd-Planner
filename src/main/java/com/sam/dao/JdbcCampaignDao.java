@@ -3,11 +3,13 @@ package com.sam.dao;
 import com.sam.model.Campaign;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component("ActiveCampaignDao")
 public class JdbcCampaignDao implements CampaignDao{
 
     private JdbcTemplate jdbcTemplate;
@@ -64,8 +66,8 @@ public class JdbcCampaignDao implements CampaignDao{
     }
 
     @Override
-    public void updateCampaign(Campaign updatedCampaign) {
-        jdbcTemplate.update(UPDATE_CAMPAIGN_SQL, updatedCampaign.getName(), updatedCampaign.getDescription(), updatedCampaign.getCampaignId());
+    public void updateCampaign(int id,Campaign updatedCampaign) {
+        jdbcTemplate.update(UPDATE_CAMPAIGN_SQL, updatedCampaign.getName(), updatedCampaign.getDescription(), id);
     }
 
     @Override

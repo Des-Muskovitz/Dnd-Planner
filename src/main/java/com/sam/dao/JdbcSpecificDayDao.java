@@ -3,12 +3,14 @@ package com.sam.dao;
 import com.sam.model.SpecificDay;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component("ActiveSpecificDayDao")
 public class JdbcSpecificDayDao implements SpecificDayDao{
     private final JdbcTemplate jdbcTemplate;
     private static final String START_OF_SELECT_STATEMENT_SQL = "SELECT person_id, specific_date, is_free FROM specific_day";

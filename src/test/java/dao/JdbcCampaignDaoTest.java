@@ -65,7 +65,7 @@ public class JdbcCampaignDaoTest extends BaseDaoTest {
     @Test
     public void testUpdateCampaign() {
         testCampaign.setCampaignId(1);
-        sut.updateCampaign(testCampaign);
+        sut.updateCampaign(1, testCampaign);
         assertCampaignsMatch(testCampaign, sut.getCampaignById(1));
     }
 

@@ -3,11 +3,13 @@ package com.sam.dao;
 import com.sam.model.DayOfWeek;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component("ActiveDayOfWeekDao")
 public class JdbcDayOfWeekDao implements DayOfWeekDao{
     private final JdbcTemplate jdbcTemplate;
     private static final String START_OF_SELECT_STATEMENT_SQL = "SELECT person_id, day_code, is_free, start_time, end_time FROM days_of_week";

@@ -50,7 +50,7 @@ public interface CampaignDao {
      *
      * @param updatedCampaign An updated campaign object, Must have a valid campaign id or no changes will apply
      */
-    public void updateCampaign(Campaign updatedCampaign);
+    public void updateCampaign(int id, Campaign updatedCampaign);
 
     /**
      * Removes a Campaign entity from the datasource
