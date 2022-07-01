@@ -1,6 +1,6 @@
 package dao;
 
-import junit.framework.TestCase;
+import com.sam.dao.JdbcDayOfWeekDao;
 import org.junit.Before;
 
 public class JdbcDayOfWeekDaoTest extends BaseDaoTest {

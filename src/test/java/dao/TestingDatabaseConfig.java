@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class TestingDatabaseConfig {
     private static final String DB_HOST = "localhost";
-    private static final String DB_NAME = "Testing";
+    private static final String DB_NAME = "Testing_Files";
     private static final String DB_PORT = "5432";
     private static final String DB_USER = "postgres";
     private static final String DB_PASSWORD = "postgres1";

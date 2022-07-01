@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,7 +54,7 @@
   </component>
   <component name="RunManager" selected="Application.DndPlannerCLI">
     <configuration name="DndPlannerCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DndPlannerCLI" />
+      <option name="MAIN_CLASS_NAME" value="com.sam.DndPlannerCLI" />
       <module name="DnD-Planner" />
       <method v="2">
         <option name="Make" enabled="true" />
