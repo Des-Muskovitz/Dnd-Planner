@@ -22,7 +22,6 @@ public interface PersonDao {
      */
     public List<Person> getAllPeopleByCampaign(int campaignId);
 
-
     /**
      * Gets a specific person from a data source by their id and returns as a Person object
      *
@@ -39,7 +38,6 @@ public interface PersonDao {
      */
     public Person addPerson(Person newPerson);
 
-
     /**
      * Updates a person that currently exists within a database
      * can only be called on a person that exists
@@ -47,8 +45,7 @@ public interface PersonDao {
      * @param newPerson Contains all the information that needs to be updated to database,
      *                  MUST CONTAIN a valid Id Code or update will not apply
      */
-    public void updatePerson(Person newPerson);
-
+    public void updatePerson(int id, Person newPerson);
 
     /**
      * Removes a person that currently exists within a database
@@ -57,5 +54,4 @@ public interface PersonDao {
      * @param personId Must be a valid Id Code or delete will not apply
      */
     public void deletePerson(int personId);
-
 }

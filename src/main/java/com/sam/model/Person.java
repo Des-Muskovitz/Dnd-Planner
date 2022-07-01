@@ -1,10 +1,12 @@
 package com.sam.model;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class Person {
 
     private int personId;
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
     public int getPersonId() {

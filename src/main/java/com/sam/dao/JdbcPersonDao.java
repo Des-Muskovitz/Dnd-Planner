@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component("ActivePersonDao")
 public class JdbcPersonDao implements PersonDao{
 
     private final JdbcTemplate jdbcTemplate;
@@ -61,8 +61,8 @@ public class JdbcPersonDao implements PersonDao{
     }
 
     @Override
-    public void updatePerson(Person newPerson) {
-        jdbcTemplate.update(UPDATE_PERSON_SQL,newPerson.getName());
+    public void updatePerson(int id, Person newPerson) {
+        jdbcTemplate.update(UPDATE_PERSON_SQL,newPerson.getName(), id);
     }
 
     @Override
