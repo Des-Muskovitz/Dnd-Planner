@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit3 Test Class" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -32,8 +32,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="dao.BaseDaoTest" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="com.sam.dao.BaseDaoTest" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../samuel-muskovitz-student-code/module-2/15_Review_Day/exercise" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -45,14 +45,19 @@
       <recent name="C:\Users\Student\workspace\Personal-Projects\DnD-Planner\src\main\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
+      <recent name="com.sam.dao.BaseDaoTest" />
       <recent name="dao.BaseDaoTest" />
       <recent name="junit.framework.TestCase" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sam.dao" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.sam.dao" />
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DndPlannerCLI">
+  <component name="RunManager" selected="JUnit.JdbcSpecificDayDaoTest">
     <configuration name="DndPlannerCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sam.DndPlannerCLI" />
       <module name="DnD-Planner" />
@@ -60,76 +65,66 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JdbcCampaignDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in DnD-Planner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DnD-Planner" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcDayOfWeekDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DnD-Planner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="com.sam.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
+      <option name="PACKAGE_NAME" value="com.sam.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.sam.dao.JdbcDayOfWeekDaoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JdbcCampaignDaoTest.testAddPlayerToCampaign" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JdbcPersonDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DnD-Planner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="com.sam.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
-      <option name="METHOD_NAME" value="testAddPlayerToCampaign" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.sam.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.sam.dao.JdbcPersonDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JdbcCampaignDaoTest.testGetCampaigns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JdbcSpecificDayDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DnD-Planner" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="com.sam.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
-      <option name="METHOD_NAME" value="testGetCampaigns" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JdbcCampaignDaoTest.testGetCampaignsByPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DnD-Planner" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.JdbcCampaignDaoTest" />
-      <option name="METHOD_NAME" value="testGetCampaignsByPerson" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.sam.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.sam.dao.JdbcSpecificDayDaoTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JdbcSpecificDayDaoTest" />
+        <item itemvalue="JUnit.All in DnD-Planner" />
+        <item itemvalue="JUnit.JdbcPersonDaoTest" />
         <item itemvalue="Application.DndPlannerCLI" />
-        <item itemvalue="JUnit.JdbcCampaignDaoTest" />
-        <item itemvalue="JUnit.JdbcCampaignDaoTest.testGetCampaigns" />
-        <item itemvalue="JUnit.JdbcCampaignDaoTest.testGetCampaignsByPerson" />
-        <item itemvalue="JUnit.JdbcCampaignDaoTest.testAddPlayerToCampaign" />
+        <item itemvalue="JUnit.JdbcDayOfWeekDaoTest" />
       </list>
     </recent_temporary>
   </component>

@@ -1,4 +1,4 @@
-package dao;
+package com.sam.dao;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;

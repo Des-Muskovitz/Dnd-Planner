@@ -6,10 +6,22 @@ import java.util.Objects;
 public class DayOfWeek {
 
     private int personId;
+    private int campaignId;
     private String dayCode;
     private boolean isFree;
     private LocalTime startTime;
     private LocalTime endTime;
+
+    public DayOfWeek(){}
+
+    public DayOfWeek(int personId, int campaignId, String dayCode, boolean isFree, LocalTime startTime, LocalTime endTime) {
+        this.personId = personId;
+        this.campaignId = campaignId;
+        this.dayCode = dayCode;
+        this.isFree = isFree;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 
     public int getPersonId() {
         return personId;
@@ -17,6 +29,14 @@ public class DayOfWeek {
 
     public void setPersonId(int personId) {
         this.personId = personId;
+    }
+
+    public int getCampaignId() {
+        return campaignId;
+    }
+
+    public void setCampaignId(int campaignId) {
+        this.campaignId = campaignId;
     }
 
     public String getDayCode() {

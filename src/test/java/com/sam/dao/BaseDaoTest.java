@@ -1,4 +1,4 @@
-package dao;
+package com.sam.dao;
 
 import org.junit.After;
 import org.junit.runner.RunWith;

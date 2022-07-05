@@ -8,6 +8,14 @@ public class SpecificDay {
     private LocalDate date;
     private boolean isFree;
 
+    public SpecificDay(){}
+
+    public SpecificDay(int personId, LocalDate date, boolean isFree) {
+        this.personId = personId;
+        this.date = date;
+        this.isFree = isFree;
+    }
+
     public int getPersonId() {
         return personId;
     }

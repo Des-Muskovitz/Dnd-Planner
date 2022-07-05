@@ -14,9 +14,10 @@ import java.util.List;
 public class JdbcSpecificDayDao implements SpecificDayDao{
     private final JdbcTemplate jdbcTemplate;
     private static final String START_OF_SELECT_STATEMENT_SQL = "SELECT person_id, specific_date, is_free FROM specific_day";
-    private static final String GET_SPECIFIC_DAYS_SQL = START_OF_SELECT_STATEMENT_SQL + ";";
-    private static final String GET_SPECIFIC_DAYS_BY_PERSON_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ?;";
-    private static final String GET_SPECIFIC_DAYS_BY_DATE_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE specific_date = ?;";
+    private static final String END_OF_SELECT_STATEMENT_SQL = "ORDER BY specific_date ASC, person_id ASC;";
+    private static final String GET_SPECIFIC_DAYS_SQL = START_OF_SELECT_STATEMENT_SQL + " " + END_OF_SELECT_STATEMENT_SQL;
+    private static final String GET_SPECIFIC_DAYS_BY_PERSON_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ? " + END_OF_SELECT_STATEMENT_SQL;
+    private static final String GET_SPECIFIC_DAYS_BY_DATE_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE specific_date = ? " + END_OF_SELECT_STATEMENT_SQL;
     private static final String GET_SPECIFIC_DAY_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ? AND specific_date = ?;";
     private static final String ADD_SPECIFIC_DAY_SQL = "INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (?,?,?);";
     private static final String UPDATE_SPECIFIC_DAY_SQL = "UPDATE specific_day SET is_free = ? WHERE person_id = ? AND specific_date = ?;";

@@ -9,6 +9,13 @@ public class Person {
     @NotBlank(message = "Name cannot be blank")
     private String name;
 
+    public Person(){}
+
+    public Person(int personId, String name){
+        this.personId = personId;
+        this.name = name;
+    }
+
     public int getPersonId() {
         return personId;
     }

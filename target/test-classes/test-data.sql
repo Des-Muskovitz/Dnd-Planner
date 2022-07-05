@@ -56,7 +56,7 @@ INSERT INTO person (name) VALUES ('Brandon Leong');         --4
 INSERT INTO person (name) VALUES ('Matt VanTrease');        --5
 INSERT INTO person (name) VALUES ('Dana Coyle');            --6
 INSERT INTO person (name) VALUES ('Brandon Butler');        --7
-INSERT INTO person (name) VALUES ('Darah Muhhamad');        --8
+INSERT INTO person (name) VALUES ('Darah Muhamad');        --8
 INSERT INTO person (name) VALUES ('Neha Kamireddi');        --9
 
 INSERT INTO campaign (name, description) VALUES ('Un-titled Call of Cathulu', 'A call of Cathulu campaign where there is a time loop set in 2020');     --1
@@ -82,20 +82,22 @@ INSERT INTO campaign_person (campaign_id, person_id) VALUES (3,6);
 INSERT INTO campaign_person (campaign_id, person_id) VALUES (3,8);
 
 
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'MON', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (1, 1, 'TUE', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'WEN', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (1, 1, 'THU', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'FRI', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (1, 1, 'SAT', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'SUN', true, '15:30:00', '20:45:00');
+INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'MON', false, (NOW() - INTERVAL '5 hours'), (NOW() + INTERVAL '5 hours'));
+INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (1, 1, 'TUE', true, (NOW() - INTERVAL '2 hours'), (NOW() + INTERVAL '2 hours'));
 
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'MON', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (2, 1, 'TUE', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'WEN', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (2, 1, 'THU', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'FRI', true, '15:30:00', '20:45:00');
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free) VALUES (2, 1, 'SAT', false);
-INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'SUN', true, '15:30:00', '20:45:00');
+INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'MON', true, (NOW() - INTERVAL '1 hour'), (NOW() + INTERVAL '1 hour'));
+INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (2, 1, 'TUE', false, (NOW() - INTERVAL '5 hour'), (NOW() + INTERVAL '5 hour'));
+
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (1, '2022-07-29', false);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (2, '2022-07-29', true);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (3, '2022-07-29', true);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (4, '2022-07-29', true);
+
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (1, '2022-07-05', true);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (2, '2022-07-05', true);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (3, '2022-07-05', false);
+INSERT INTO specific_day (person_id, specific_date, is_free) VALUES (4, '2022-07-05', false);
+
+
 
 COMMIT;

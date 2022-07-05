@@ -19,7 +19,7 @@ public class JdbcPersonDao implements PersonDao{
     private static final String GET_ALL_PEOPLE_BY_CAMPAIGN_SQL = START_SELECT_STATEMENT_SQL + " JOIN campaign_person cp ON cp.person_id = p.person_id WHERE cp.campaign_id = ?;";
     private static final String ADD_PERSON_SQL = "INSERT INTO person (name) VALUES (?) RETURNING person_id;";
     private static final String UPDATE_PERSON_SQL = "UPDATE person SET name = ? WHERE person_id = ?;";
-    private static final String DELETE_PERSON_SQL = "DELETE FROM days_of_week WHERE person_id = ?; DELETE FROM specific_days WHERE person_id = ?; DELETE FROM person WHERE person_id = ?;";
+    private static final String DELETE_PERSON_SQL = "DELETE FROM campaign_person WHERE person_id = ?; DELETE FROM days_of_week WHERE person_id = ?; DELETE FROM specific_day WHERE person_id = ?; DELETE FROM person WHERE person_id = ?;";
 
     public JdbcPersonDao(DataSource dataSource){this.jdbcTemplate = new JdbcTemplate(dataSource);}
 
@@ -67,7 +67,7 @@ public class JdbcPersonDao implements PersonDao{
 
     @Override
     public void deletePerson(int personId) {
-        jdbcTemplate.update(DELETE_PERSON_SQL, personId);
+        jdbcTemplate.update(DELETE_PERSON_SQL, personId, personId, personId, personId);
     }
 
     /**

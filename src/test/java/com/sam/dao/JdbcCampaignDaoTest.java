@@ -1,6 +1,5 @@
-package dao;
+package com.sam.dao;
 
-import com.sam.dao.JdbcCampaignDao;
 import com.sam.model.Campaign;
 import org.junit.Assert;
 import org.junit.Before;

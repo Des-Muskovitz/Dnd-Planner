@@ -12,15 +12,16 @@ import java.util.List;
 @Component("ActiveDayOfWeekDao")
 public class JdbcDayOfWeekDao implements DayOfWeekDao{
     private final JdbcTemplate jdbcTemplate;
-    private static final String START_OF_SELECT_STATEMENT_SQL = "SELECT person_id, day_code, is_free, start_time, end_time FROM days_of_week";
-    private static final String GET_ALL_DAYS_OF_WEEK_SQL = START_OF_SELECT_STATEMENT_SQL+";";
-    private static final String GET_DAY_OF_WEEK_BY_PERSON_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ?;";
-    private static final String GET_DAY_OF_WEEK_BY_DAY_CODE_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE day_code = ?;";
-    private static final String GET_DAY_OF_WEEK_BY_CAMPAIGN_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE campaign_id = ?;";
+    private static final String END_OF_SELECT_STATEMENT_SQL = "ORDER BY person_id ASC, campaign_id ASC, day_code ASC;";
+    private static final String START_OF_SELECT_STATEMENT_SQL = "SELECT person_id, campaign_id, day_code, is_free, start_time, end_time FROM days_of_week";
+    private static final String GET_ALL_DAYS_OF_WEEK_SQL = START_OF_SELECT_STATEMENT_SQL+ " " +END_OF_SELECT_STATEMENT_SQL;
+    private static final String GET_DAY_OF_WEEK_BY_PERSON_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ? " + END_OF_SELECT_STATEMENT_SQL;
+    private static final String GET_DAY_OF_WEEK_BY_DAY_CODE_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE day_code = ? " + END_OF_SELECT_STATEMENT_SQL;
+    private static final String GET_DAY_OF_WEEK_BY_CAMPAIGN_ID_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE campaign_id = ? " + END_OF_SELECT_STATEMENT_SQL;
     private static final String GET_DAY_OF_WEEK_SQL = START_OF_SELECT_STATEMENT_SQL + " WHERE person_id = ? AND day_code = ?";
-    private static final String ADD_DAY_OF_WEEK_SQL = "INSERT INTO day_of_week (person_id, day_code, is_free, start_time, end_time) VALUES (?,?,?,?,?)";
-    private static final String UPDATE_DAY_OF_WEEK_SQL = "UPDATE day_of_week SET person_id = ?, day_code = ?, is_free = ?, start_time = ? end_time = ? WHERE person_id = ? AND day_code = ?;";
-    private static final String DELETE_DAY_OF_WEEK_SQL = "DELETE FROM day_of_week WHERE person_id = ? AND day_code = ?;";
+    private static final String ADD_DAY_OF_WEEK_SQL = "INSERT INTO days_of_week (person_id, campaign_id, day_code, is_free, start_time, end_time) VALUES (?,?,?,?,?,?)";
+    private static final String UPDATE_DAY_OF_WEEK_SQL = "UPDATE days_of_week SET person_id = ?, campaign_id = ?, day_code = ?, is_free = ?, start_time = ?, end_time = ? WHERE person_id = ? AND day_code = ?;";
+    private static final String DELETE_DAY_OF_WEEK_SQL = "DELETE FROM days_of_week WHERE person_id = ? AND day_code = ?;";
 
     public JdbcDayOfWeekDao(DataSource dataSource){this.jdbcTemplate = new JdbcTemplate(dataSource);}
 
@@ -76,13 +77,13 @@ public class JdbcDayOfWeekDao implements DayOfWeekDao{
 
     @Override
     public DayOfWeek addDayOfWeek(DayOfWeek dayOfWeek) {
-        jdbcTemplate.update(ADD_DAY_OF_WEEK_SQL, dayOfWeek.getPersonId(), dayOfWeek.getDayCode(), dayOfWeek.isFree(), dayOfWeek.getStartTime(), dayOfWeek.getEndTime());
+        jdbcTemplate.update(ADD_DAY_OF_WEEK_SQL, dayOfWeek.getPersonId(), dayOfWeek.getCampaignId(), dayOfWeek.getDayCode(), dayOfWeek.isFree(), dayOfWeek.getStartTime(), dayOfWeek.getEndTime());
         return getDayOfWeek(dayOfWeek.getPersonId(), dayOfWeek.getDayCode());
     }
 
     @Override
     public void updateDayOfWeek(DayOfWeek dayOfWeek) {
-        jdbcTemplate.update(UPDATE_DAY_OF_WEEK_SQL, dayOfWeek.getPersonId(), dayOfWeek.getDayCode(), dayOfWeek.isFree(), dayOfWeek.getStartTime(), dayOfWeek.getEndTime());
+        jdbcTemplate.update(UPDATE_DAY_OF_WEEK_SQL, dayOfWeek.getPersonId(), dayOfWeek.getCampaignId(), dayOfWeek.getDayCode(), dayOfWeek.isFree(), dayOfWeek.getStartTime(), dayOfWeek.getEndTime(), dayOfWeek.getPersonId(), dayOfWeek.getDayCode());
     }
 
     @Override
@@ -99,6 +100,7 @@ public class JdbcDayOfWeekDao implements DayOfWeekDao{
     private DayOfWeek mapDataToDayOfWeek(SqlRowSet sqlRowSet){
         DayOfWeek dayOfWeek = new DayOfWeek();
         dayOfWeek.setPersonId(sqlRowSet.getInt("person_id"));
+        dayOfWeek.setCampaignId(sqlRowSet.getInt("campaign_id"));
         dayOfWeek.setDayCode(sqlRowSet.getString("day_code"));
         dayOfWeek.setFree(sqlRowSet.getBoolean("is_free"));
         if(sqlRowSet.getTime("start_time") != null){
