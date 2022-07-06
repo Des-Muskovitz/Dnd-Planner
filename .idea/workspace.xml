@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -33,7 +33,7 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="com.sam.dao.BaseDaoTest" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../samuel-muskovitz-student-code/module-2/15_Review_Day/exercise" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -57,7 +57,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JdbcSpecificDayDaoTest">
+  <component name="RunManager" selected="Application.DndPlannerCLI">
     <configuration name="DndPlannerCLI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sam.DndPlannerCLI" />
       <module name="DnD-Planner" />
@@ -120,10 +120,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JdbcSpecificDayDaoTest" />
-        <item itemvalue="JUnit.All in DnD-Planner" />
-        <item itemvalue="JUnit.JdbcPersonDaoTest" />
         <item itemvalue="Application.DndPlannerCLI" />
+        <item itemvalue="JUnit.All in DnD-Planner" />
+        <item itemvalue="JUnit.JdbcSpecificDayDaoTest" />
+        <item itemvalue="JUnit.JdbcPersonDaoTest" />
         <item itemvalue="JUnit.JdbcDayOfWeekDaoTest" />
       </list>
     </recent_temporary>

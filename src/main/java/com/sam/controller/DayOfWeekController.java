@@ -9,7 +9,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/dayofweek/")
+@RequestMapping("/day/")
 public class DayOfWeekController {
 
     private DayOfWeekDao dao;
